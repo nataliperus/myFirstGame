@@ -9,64 +9,78 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends Activity {
-    private BroadcastReceiver clickReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
+import java.util.Random;
 
-        }
-    };
-    private int numberOfBox = 0;
+public class MainActivity extends Activity {
+
+    private int numberOfFullBox = 0;
+    private Random random = new Random();
     private int level = 0;
     private ImageView box1View, box2View, box3View;
     private View buttonReset;
-    private View.OnClickListener onClickListener;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-     //   numberOfBox =
+        buttonReset = findViewById(R.id.button1);
         box1View = findViewById(R.id.box1);
+        box2View = findViewById(R.id.box2);
+        box3View = findViewById(R.id.box3);
+        initAll();
         box1View.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 level =10000;
-                buttonReset.setVisibility(View.VISIBLE);
+                drowBoxes(numberOfFullBox,level);
             }
         });
-        box2View = findViewById(R.id.box2);
         box2View.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 level =10000;
-                buttonReset.setVisibility(View.VISIBLE);
+                drowBoxes(numberOfFullBox,level);
             }
         });
-        box3View = findViewById(R.id.box3);
         box3View.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 level =10000;
-                buttonReset.setVisibility(View.VISIBLE);
+                drowBoxes(numberOfFullBox,level);
             }
         });
-        buttonReset = findViewById(R.id.button1);
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initAll();
+            }
+        });
+    }
+    private void drowBoxes(int currentBox, int currentLevel){
+        if (currentBox==1){
+            box1View.getDrawable().setLevel(currentLevel);
+        }
+        if (currentBox==2){
+            box2View.getDrawable().setLevel(currentLevel);
+        }
+        if (currentBox==3){
+            box3View.getDrawable().setLevel(currentLevel);
+        }
+        buttonReset.setVisibility(View.VISIBLE);
+    }
+    private void initAll(){
+        level = 0;
+        box1View.getDrawable().setLevel(level);
+        box2View.getDrawable().setLevel(level);
+        box3View.getDrawable().setLevel(level);
+        numberOfFullBox = random.nextInt(3)+1;
         buttonReset.setVisibility(View.INVISIBLE);
     }
-
     @Override
-    protected void onStart(){
+    public void onStart(){
         super.onStart();
-    //    IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CALL_BUTTON);
-      //  registerReceiver(clickReceiver,intentFilter);
     }
-
     @Override
-    protected  void onStop(){
+    public void onStop(){
         super.onStop();
-     //   unregisterReceiver(clickReceiver);
-    }
-    private void doShow(){
-        if (View
     }
 }
