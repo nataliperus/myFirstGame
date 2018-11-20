@@ -8,10 +8,16 @@
     </item>
 
     <item>
-        <shape android:shape="rectangle">
-             <size android:height="60dp" android:width="60dp" />
-             <solid android:color="@color/colorPrimary" />
-             <corners android:radius="1dp"/>
-        </shape>
+        <level-list>
+            <item android:maxLevel="1" android:minLevel="0">
+                <clip android:clipOrientation="vertical" android:gravity="bottom">
+                 <shape android:shape="rectangle">
+                      <size android:height="60dp" android:width="60dp" />
+                      <solid android:color="@color/colorPrimary" />
+                      <corners android:radius="1dp"/>
+                 </shape>
+                </clip>
+            </item>
+        </level-list>
     </item>
 </layer-list>
