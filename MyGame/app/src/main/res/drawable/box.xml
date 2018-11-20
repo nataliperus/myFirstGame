@@ -18,6 +18,15 @@
                  </shape>
                 </clip>
             </item>
+            <item android:maxLevel="10000" android:minLevel="2">
+                <clip android:clipOrientation="vertical" android:gravity="bottom">
+                    <shape android:shape="rectangle">
+                        <size android:height="60dp" android:width="60dp" />
+                        <solid android:color="@color/colorPrimary" />
+                        <corners android:radius="1dp"/>
+                    </shape>
+                </clip>
+            </item>
         </level-list>
     </item>
 </layer-list>

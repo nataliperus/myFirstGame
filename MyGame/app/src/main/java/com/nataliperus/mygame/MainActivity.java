@@ -13,36 +13,60 @@ public class MainActivity extends Activity {
     private BroadcastReceiver clickReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            buttonReset.setVisibility(View.VISIBLE);
+
         }
     };
-
+    private int numberOfBox = 0;
+    private int level = 0;
     private ImageView box1View, box2View, box3View;
     private View buttonReset;
+    private View.OnClickListener onClickListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+     //   numberOfBox =
         box1View = findViewById(R.id.box1);
+        box1View.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                level =10000;
+                buttonReset.setVisibility(View.VISIBLE);
+            }
+        });
         box2View = findViewById(R.id.box2);
+        box2View.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                level =10000;
+                buttonReset.setVisibility(View.VISIBLE);
+            }
+        });
         box3View = findViewById(R.id.box3);
+        box3View.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                level =10000;
+                buttonReset.setVisibility(View.VISIBLE);
+            }
+        });
         buttonReset = findViewById(R.id.button1);
-        box1View.setVisibility(View.VISIBLE);
-        box2View.setVisibility(View.VISIBLE);
-        box3View.setVisibility(View.VISIBLE);
         buttonReset.setVisibility(View.INVISIBLE);
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CALL_BUTTON);
-        registerReceiver(clickReceiver,intentFilter);
+    //    IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CALL_BUTTON);
+      //  registerReceiver(clickReceiver,intentFilter);
     }
 
     @Override
     protected  void onStop(){
         super.onStop();
-        unregisterReceiver(clickReceiver);
+     //   unregisterReceiver(clickReceiver);
+    }
+    private void doShow(){
+        if (View
     }
 }

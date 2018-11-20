@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyGame</string>
+
+    <string name="button1">Reset</string>
+    <string name="box1">box1</string>
+    <string name="box2">box2</string>
+    <string name="box3">box3</string>
+
 </resources>
